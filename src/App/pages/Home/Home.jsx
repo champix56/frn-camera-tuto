@@ -35,7 +35,7 @@ const Home = props => {
         <Button
           title="New car"
           onPress={evt => {
-            props.navigation.navigate('Home');
+            props.navigation.navigate('nouveau vehicule');
           }}
         />
       </View>
