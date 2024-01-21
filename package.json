@@ -7,9 +7,12 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "adbreverseJSON":"adb reverse tcp:5608 tcp:5608",
+    "json": "npm run adbreverseJSON | json-server -h 0.0.0.0 -p 5608 db/db.json"
   },
   "dependencies": {
+    "json-server": "^1.0.0-alpha.21",
     "react": "18.2.0",
     "react-native": "0.73.2"
   },
