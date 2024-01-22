@@ -11,6 +11,11 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {ICar} from '../../interfaces/ICar';
+import {
+  Camera,
+  useCameraDevice,
+  useCameraPermission,
+} from 'react-native-vision-camera';
 
 type Props = {
   car: ICar;
@@ -18,7 +23,20 @@ type Props = {
 
 const CarEditor = (props: Props) => {
   const [car, setCar] = useState(props.car);
-  return (
+  const [cameraOpen, setCameraOpen] = useState(false);
+
+  const {hasPermission, requestPermission} = useCameraPermission();
+  requestPermission();
+  const device = useCameraDevice('back');
+
+  const CameraComponent =
+    device == null ? null : (
+      <Camera style={StyleSheet.absoluteFill} device={device} isActive={true} />
+    );
+
+  return cameraOpen && CameraComponent != null ? (
+    CameraComponent
+  ) : (
     <ScrollView style={styles.scrollView}>
       <View style={styles.CarEditor}>
         <View style={styles.carLeftContainer}>
@@ -46,6 +64,7 @@ const CarEditor = (props: Props) => {
             style={styles.carPhotoTouchable}
             onPress={() => {
               ToastAndroid.show('Camera asked', ToastAndroid.LONG);
+              setCameraOpen(true);
             }}>
             <Image
               style={styles.carPhoto}
