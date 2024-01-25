@@ -37,6 +37,12 @@ const Home = props => {
           onPress={evt => {
             props.navigation.navigate('nouveau vehicule');
           }}
+        /> 
+        <Button
+          title="Camera"
+          onPress={evt => {
+            props.navigation.navigate('ForceCam');
+          }}
         />
       </View>
     </View>

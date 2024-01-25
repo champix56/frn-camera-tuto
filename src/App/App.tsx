@@ -12,6 +12,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import CarEditor from './components/CarEditor/CarEditor';
 import {DUMMY_CAR} from './interfaces/ICar';
+import MyCamera from './components/MyCamera/MyCamera';
 
 const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
@@ -25,6 +26,11 @@ function App(): React.JSX.Element {
           name="nouveau vehicule"
           options={{headerShown: true, title: 'Nouveau vehicule'}}>
           {p => <CarEditor {...p} car={DUMMY_CAR} />}
+        </Stack.Screen>
+        <Stack.Screen
+          name="ForceCam"
+          options={{headerShown: true, title: 'Camera Forced'}}>
+          {p => <MyCamera {...p} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

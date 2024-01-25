@@ -12,6 +12,7 @@
     "json": "npm run adbreverseJSON | json-server -h 0.0.0.0 -p 5608 db/db.json"
   },
   "dependencies": {
+    "@react-native-camera-roll/camera-roll": "^7.4.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "json-server": "^1.0.0-alpha.21",
